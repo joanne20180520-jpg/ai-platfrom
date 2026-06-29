@@ -363,17 +363,17 @@
 
 <script>
 // ═══════════════════════════════════════════════════
-// 設定區 — 填入你的 Lark 資訊
+// 設定區 — 填入你的 Lark 資訊（B 帳號專用）
 // ═══════════════════════════════════════════════════
 const CONFIG = {
-  larkAppId: 'cli_aab0a79779f89e13',   // 在 Lark 開發者後台「憑證與基礎信息」可以找到，不是機密，可放前端
-  appToken:  'Ush0bCKtAa08h7slpVVjqG10pIg',
+  larkAppId: 'cli_aacb051e6bf8de15',   // 在 Lark 開發者後台「憑證與基礎信息」可以找到，不是機密，可放前端
+  appToken:  'Aa8sb4SbwaWlLrsZJl9jhGTSpGu',
   tables: {
-    tickets:       'tbllYQJY0mPyY0rb',
-    projects:      'tblQx7UphBLyz4K7',
-    tasks:         'tbl1RelJ3o5lr79D',
-    announcements: 'tblu0qYQjrrHKDyN',
-    roadmap:       'tbl9eXY7wKU12h56',
+    tickets:       'tblafHpoiTWZabGz',
+    projects:      'tblRZbumhqHI9Oxi',
+    tasks:         'tblsjZfs6V9p8cr3',
+    announcements: 'tblKDeZ1J241YFgh',
+    roadmap:       'tblXDuE6dSVAg2pM',
   }
 }
 
@@ -502,6 +502,8 @@ async function loadService() {
 
   } catch(e) {
     console.error(e)
+    const annEl = document.getElementById('announcements-list')
+    if (annEl) annEl.innerHTML = `<div class="empty" style="color:#DC2626;">載入失敗：${e.message}</div>`
   }
 }
 
