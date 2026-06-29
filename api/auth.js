@@ -84,8 +84,9 @@ export default async function handler(req, res) {
     const tenantAccessToken = tenantTokenData.tenant_access_token
 
     // 5. 查白名單表格（人員列表），page_size 拉大一點確保涵蓋全部白名單
-    const WHITELIST_APP_TOKEN = process.env.LARK_BASE_APP_TOKEN || 'Ush0bCKtAa08h7slpVVjqG10pIg'
-    const WHITELIST_TABLE_ID = 'tblH0xy9KqUQzoWg'
+    //    ↓↓↓ 這兩個值是 B 帳號的多維表格設定 ↓↓↓
+    const WHITELIST_APP_TOKEN = process.env.LARK_BASE_APP_TOKEN || 'Aa8sb4SbwaWlLrsZJl9jhGTSpGu'
+    const WHITELIST_TABLE_ID = 'tblboTrr6gAYWLlR'
     const listResp = await fetch(
       `https://open.larksuite.com/open-apis/bitable/v1/apps/${WHITELIST_APP_TOKEN}/tables/${WHITELIST_TABLE_ID}/records?page_size=200`,
       { headers: { Authorization: 'Bearer ' + tenantAccessToken } }
